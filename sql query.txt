@@ -1,0 +1,29 @@
+create database university;
+use university;
+create table stu(
+student_id INT primary key,
+student_name VARCHAR(12),
+student_age INT,
+student_major VARCHAR(5)
+);
+insert into stu  values (1,"asif king ",39,"cs");
+insert into stu  values (2,"jacksaprow",25,"ece");
+insert into stu  values (3,"ironman",25,"ece");
+insert into stu  values (4,"ittachilum",25,"eee");
+insert into stu  values (5,"pichachu_p",25,"cs");
+
+select * from stu;
+-- name cs student--
+SELECT * FROM stu
+WHERE student_major="cs";
+-- oldest student--
+select *from stu
+where student_age=(select max(student_age)
+from stu);
+-- update quary --
+update stu
+set major="cse"
+where id=4;
+-- delete any one stident id---
+delete from stu
+where id=5;
